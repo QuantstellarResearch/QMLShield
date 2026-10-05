@@ -6,8 +6,6 @@ QMLShield is a research-oriented framework for studying adversarial robustness a
 
 The project investigates whether purification mechanisms can recover adversarially perturbed inputs before quantum classification while preserving clean-input performance.
 
-> **Research status:** Early-stage research prototype. Results and conclusions are experimental and should not be interpreted as claims of universal QML security.
-
 ---
 
 ## Research Focus
