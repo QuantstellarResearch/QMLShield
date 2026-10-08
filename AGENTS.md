@@ -15,9 +15,11 @@ QMLShield — a research project on adversarial robustness and purification for 
 - `uv run ruff check .` and `uv run ruff format --check .` — lint/format (Ruff defaults; no config in `pyproject.toml`).
 - Environment check: `uv run python -c "import pennylane, torch, torchvision, numpy, scipy, sklearn, pandas, matplotlib; print('QMLShield environment OK')"`
 
-## Setup gotcha
+## Package setup
 
-- `import qmlshield` currently **fails** with `ModuleNotFoundError`: there is no `[build-system]`, no `__init__.py`, and no pytest `pythonpath` config. Before running any code, make the package importable — add `__init__.py` files and either a build backend (editable install) or `pythonpath = ["src"]` in pytest config. Verify with `uv run python -c "import qmlshield"`.
+- `qmlshield` is installed as an editable package via Hatchling (`[build-system]` in `pyproject.toml`); after `uv sync`, `import qmlshield` resolves to `src/qmlshield/`.
+- Pytest is configured with `pythonpath = ["src"]` (`[tool.pytest.ini_options]`), so tests import the package without depending on the editable install.
+- `__init__.py` exists for `qmlshield` and every subpackage.
 
 ## Sources of truth (read before changing behavior)
 
