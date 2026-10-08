@@ -79,6 +79,7 @@ The current QMLShield v0.1 baseline is:
 | Kernel Integration | IPython / Jupyter Kernel |
 | Version Control | Git |
 | Dependency Locking | `uv.lock` |
+| Hardware / Cloud Execution (later stage) | QUDORA Cloud (`qudora-sdk`) |
 
 This is the baseline stack for the current research stage.
 
@@ -380,6 +381,33 @@ reproducibility
 ```
 
 The exact schema should evolve with the experiment requirements.
+
+---
+
+## 5.9 QUDORA Cloud SDK
+
+**Role:** Execution backend for QUDORA Cloud emulators and trapped-ion quantum hardware.
+
+`qudora-sdk` provides programmatic access to QUDORA Cloud, including the Qamelion emulator with adaptive trapped-ion noise models and, in the future, trapped-ion quantum computers.
+
+It is the intended concrete backend for the later execution stages:
+
+```text
+Ideal Simulation (PennyLane)
+        ↓
+Noisy Simulation (PennyLane noise models / QUDORA Qamelion)
+        ↓
+Real QPU (QUDORA Cloud)
+```
+
+### Boundary
+
+QUDORA Cloud is an execution backend, not a research framework. PennyLane remains the primary framework for circuit construction, training, and gradients; QUDORA Cloud receives exported circuits for execution when the noise or hardware stage (EXP-07 or later) requires it.
+
+### Notes
+
+- The SDK currently ships Qiskit and CUDA-Q integrations.
+- Cloud execution requires an API token supplied through environment variables, never committed to the repository.
 
 ---
 
@@ -809,6 +837,8 @@ Real QPU execution is not required for the initial v0.1 research baseline.
 
 A hardware experiment should only be introduced when it answers a meaningful research question that cannot be adequately addressed by simulation.
 
+The intended concrete backend for this stage is QUDORA Cloud (`qudora-sdk`), with the Qamelion emulator also a candidate for Stage 2 noisy simulation.
+
 ---
 
 # 14. Framework Boundary
@@ -918,11 +948,9 @@ Configuration → pipeline → results
 The following technologies are not part of the mandatory v0.1 stack:
 
 ```text
-Qiskit
 TensorFlow
 JAX
 D-Wave Ocean
-Qiskit Machine Learning
 Ray
 MLflow
 Weights & Biases
@@ -941,13 +969,9 @@ A new technology should be introduced only when it solves a demonstrated researc
 
 ---
 
-# 18. Qiskit Boundary
+# 18. Quantum Framework Boundary
 
-Qiskit is not required for the current v0.1 implementation.
-
-This does not imply that Qiskit is unsuitable for quantum research.
-
-It simply means that QMLShield currently uses:
+QMLShield currently uses:
 
 ```text
 PennyLane
@@ -1240,8 +1264,6 @@ They may evolve as research evidence or implementation requirements justify chan
 Potential future technologies may include:
 
 ```text
-Qiskit
-Qiskit Machine Learning
 Additional quantum simulators
 Additional QPU providers
 Specialized adversarial ML libraries
