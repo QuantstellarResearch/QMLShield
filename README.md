@@ -6,12 +6,6 @@ QMLShield is a research project investigating whether input purification can imp
 
 ---
 
-## Status
-
-QMLShield is at research stage **v0.1**. The research design, threat model, methodology, and experiment protocol are complete. The implementation (data pipeline, encoding, victim model, attacks, purification, evaluation) is in progress.
-
----
-
 ## Research Question
 
 > **To what extent can input purification improve the robustness of a variational quantum classifier against adversarial perturbations while preserving clean-input performance?**
