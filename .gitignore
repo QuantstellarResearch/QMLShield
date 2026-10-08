@@ -1,7 +1,63 @@
-.venv/
+# Python
 __pycache__/
+*.py[cod]
+*$py.class
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Virtual environments (uv)
+.venv/
+venv/
+env/
+
+# Test / lint / typing caches
 .pytest_cache/
 .ruff_cache/
-.ipynb_checkpoints/
+.mypy_cache/
+.dmypy.json
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+.tox/
+.nox/
 
+# Jupyter
+.ipynb_checkpoints/
+*.nbconvert.ipynb
+
+# Environment and secrets
 .env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Datasets and large artifacts
+/data/
+/datasets/
+/downloads/
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.h5
+*.safetensors
+
+# Run outputs and logs
+*.log
+logs/
+lightning_logs/
+wandb/
+
+# Editors and OS
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+Desktop.ini
