@@ -86,6 +86,7 @@ src/qmlshield/
 | Language | Python 3.12 |
 | Environment | uv |
 | Quantum ML | PennyLane |
+| Hardware / Cloud Execution | QUDORA Cloud (`qudora-sdk`) |
 | Classical ML | PyTorch |
 | Numerical Computing | NumPy, SciPy |
 | Data / Metrics | pandas, scikit-learn |
@@ -94,8 +95,6 @@ src/qmlshield/
 | Testing | pytest |
 | Linting / Formatting | Ruff |
 | Interactive Research | Jupyter |
-
-Hardware and cloud execution (QUDORA Cloud) is reserved for later execution stages and is not part of the v0.1 baseline.
 
 ---
 
